@@ -2,7 +2,7 @@
 	"name" : "lsys/sphinxclient",
 	"type" : "library",
 	"license": "Apache-2.0",
-	"version" : "1.0.0",
+	"version" : "2.0.0",
 	"description" : "lsys module sphinxclient",
 	"autoload" : {
 		"psr-4" : {
@@ -11,6 +11,6 @@
 	},
 	"require" : {
 		"php" : ">=5.5",
-		"lsys/config" : "~1.0.0"
+		"lsys/config" : "~2.0.0"
 	}
 }

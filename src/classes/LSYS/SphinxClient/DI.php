@@ -1,7 +1,7 @@
 <?php
 namespace LSYS\SphinxClient;
 /**
- * @method \LSYS\SphinxClient sphinx_client($config=null)
+ * @method \LSYS\SphinxClient sphinxClient($config=null)
  */
 class DI extends \LSYS\DI{
     /**
@@ -14,7 +14,7 @@ class DI extends \LSYS\DI{
      */
     public static function get(){
         $di=parent::get();
-        !isset($di->sphinx_client)&&$di->sphinx_client(new \LSYS\DI\ShareCallback(function($config=null){
+        !isset($di->sphinxClient)&&$di->sphinxClient(new \LSYS\DI\ShareCallback(function($config=null){
             return $config?$config:self::$config;
         },function($config=null){
             $config=\LSYS\Config\DI::get()->config($config?$config:self::$config);

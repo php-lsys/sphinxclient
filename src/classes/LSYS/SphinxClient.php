@@ -17,7 +17,7 @@ class SphinxClient extends \SphinxClient{
     public function __construct(Config $config)
     {
         parent::__construct();
-        $_config=$config->as_array()+array(
+        $_config=$config->asArray()+array(
             'host'			=>	'localhost',
             'port'			=>	9312,
             'timeout'		=>	1,
@@ -32,14 +32,14 @@ class SphinxClient extends \SphinxClient{
     
     public function GetLastError(){
         $message=parent::GetLastError();
-        if (DIRECTORY_SEPARATOR === '\\'&&$this->_is_gb2312($message)){
+        if (DIRECTORY_SEPARATOR === '\\'&&$this->_isGb2312($message)){
             if(PHP_SAPI!=='cli'||PHP_SAPI==='cli'&&version_compare(PHP_VERSION,'7.0.0',">=")){
                 $message=iconv("gb2312", "utf-8",$message);//windows in china : cover string
             }
         }
         return $message;
     }
-    private function _is_gb2312($str)
+    private function _isGb2312($str)
     {
         for($i=0; $i<strlen($str); $i++) {
             $v = ord( $str[$i] );

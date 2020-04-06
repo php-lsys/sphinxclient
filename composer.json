@@ -9,6 +9,6 @@
 		}
 	},
 	"require" : {
-		"lsys/config" : "~0.0.0"
+		"lsys/config" : "~0.0.1"
 	}
 }

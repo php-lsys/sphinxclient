@@ -30,14 +30,14 @@ class SphinxClient extends \SphinxClient{
         $this->_config=$config;
     }
     
-    public function GetLastError(){
+    public function GetLastError():string{
         $message=parent::GetLastError();
         if (DIRECTORY_SEPARATOR === '\\'&&$this->_isGb2312($message)){
             if(PHP_SAPI!=='cli'||PHP_SAPI==='cli'&&version_compare(PHP_VERSION,'7.0.0',">=")){
                 $message=iconv("gb2312", "utf-8",$message);//windows in china : cover string
             }
         }
-        return $message;
+        return (string)$message;
     }
     private function _isGb2312($str)
     {
